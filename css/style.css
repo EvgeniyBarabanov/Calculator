@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+}
+
+.calculator__container{
+    margin: 20px auto 20px;
+    width: 300px; 
+    background-color: #303d3f;
+}
+
+.calculator__conclusion{
+    height: 110px;
+    text-align: center;
+}
+
+.calculator__conclusion>input{
+    width: calc(100% - 20px);
+    height: 100%;
+    border: 0;
+    background-color: transparent;
+    font-family: 'Mali', cursive;
+    color: white;
+    font-size: 50px;
+}
+
+.calculator__btns{
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+}
+
+.calculator__horizontal-operation{
+    display: flex;
+    font-size: 0;
+}
+
+.calculator__horizontal-operation>button{ 
+    background-color: #39484a;
+    cursor: pointer;
+    border: 0;
+    width: 75px;
+    height: 75px;
+}
+
+.calculator__horizontal-operation>button:not(:last-child){
+    border-right: 2px solid #3d4c4e;
+}
+
+.calculator__vertical-operation{
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator__vertical-operation>button{
+    width: 75px;
+    height: 76px;
+    border: 0;
+    cursor: pointer;
+    background-color: #6cd1e5;
+}
+
+.calculator__vertical-operation>button:not(:last-child){
+    border-bottom: 2px solid #69cde1;
+}
+
+.calculator__numbers{
+    font-size: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.calculator__numbers_row:not(:first-child){
+    border-top: 2px solid #334042;
+}
+
+.calculator__numbers_row>button{
+    width: 75px;
+    height: 76px;
+    border: 0;
+    cursor: pointer;
+}
+
+.calculator__numbers_row>button:not(:last-child){
+    border-right: 2px solid #334042;
+}
