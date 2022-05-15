@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     /* outline: 1px solid red; */
+    box-sizing: border-box;
 }
 
 .calculator__container{
@@ -26,64 +27,73 @@
     font-size: 50px;
 }
 
+
 .calculator__btns{
-    position: absolute;
-    display: flex;
-    align-items: flex-start;
+    position: relative;
 }
+
 
 .calculator__horizontal-operation{
     display: flex;
-    font-size: 0;
+    width: 75%;
 }
 
-.calculator__horizontal-operation>button{ 
+.calculator__horizontal-operation>button{
     background-color: #39484a;
-    cursor: pointer;
-    border: 0;
     width: 75px;
     height: 75px;
+    border: 0;
+    cursor: pointer;
 }
 
 .calculator__horizontal-operation>button:not(:last-child){
     border-right: 2px solid #3d4c4e;
 }
 
-.calculator__vertical-operation{
-    display: flex;
-    flex-direction: column;
-}
-
-.calculator__vertical-operation>button{
-    width: 75px;
-    height: 76px;
-    border: 0;
-    cursor: pointer;
-    background-color: #6cd1e5;
-}
-
-.calculator__vertical-operation>button:not(:last-child){
-    border-bottom: 2px solid #69cde1;
-}
 
 .calculator__numbers{
-    font-size: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 75%;
 }
 
-.calculator__numbers_row:not(:first-child){
-    border-top: 2px solid #334042;
+.calculator__numbers_row{
+    font-size: 0;
+}
+
+.calculator__numbers_row:not(:last-child)>button{
+    border-bottom: 2px solid #334042;    
 }
 
 .calculator__numbers_row>button{
-    width: 75px;
-    height: 76px;
     border: 0;
+    width: 75px;
+    height: 75px;
+    background-color: #303d3f;
+    font-size: 25px;
+    color: #fff;
     cursor: pointer;
 }
 
 .calculator__numbers_row>button:not(:last-child){
     border-right: 2px solid #334042;
+}
+
+
+.calculator__vertical-operation{
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator__vertical-operation>button{
+    border: 0;
+    width: 75px;
+    height: 75px;
+    background-color: #6cd1e5;
+    cursor: pointer;
+}
+
+.calculator__vertical-operation>button:not(:last-child){
+    border-bottom: 2px solid #69cde1;
 }
