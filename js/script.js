@@ -34,12 +34,41 @@ const calculator = function(){
                 evalFunc();
             }else{
                 str += enter;
-                console.log(str);
-                if (!/^(-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]?)[1-9]*$/.test(str)){
-                    str = str.substring(0, str.length - 1);
-                }else{
+                if (/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))$/.test(str)){//первое слагаемое
                     input.value = str;
-                };
+                    console.log(str + " Правильно");
+                    
+                }else{
+                    if(/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[0-9\.]$/.test(str)){
+                        //console.log("Запретить числа после 0 или точку");
+                        str = str.substring(0, str.length - 1);
+                        //console.log(str);
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]$/.test(str)){
+                        input.value = str;
+                        //console.log(str + " Правильно");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]([1-9]+0*[.]?\d*)$/.test(str)){
+                        input.value = str;
+                        //console.log(str + " Правильно");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]([1-9]+0*[.]?\d*[\.])$/.test(str)){
+                        str = str.substring(0, str.length - 1);
+                        //console.log(str + " Удалил точку");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]0\.\d*$/.test(str)){
+                        input.value = str;
+                        //console.log(str + " Правильно");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]0\.\d*[\.]$/.test(str)){
+                        str = str.substring(0, str.length - 1);
+                        //console.log(str + " Удалил точку");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]0$/.test(str)){
+                        input.value = str;
+                        //console.log(str + " Правильно");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]0[0-9]$/.test(str)){
+                        str = str.substring(0, str.length - 1);
+                        //console.log(str + " Удалил цифру от 0 до 9");
+                    }else if(/-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[/*\-+]{2}$/.test(str)){
+                        str = str.substring(0, str.length - 1);
+                        //console.log(str + " Удален лишний оператор");
+                    }
+                }
                 
                 
                 
