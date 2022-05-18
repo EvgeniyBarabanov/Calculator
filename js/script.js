@@ -1,12 +1,12 @@
-const calculator = function(){
+const calculator = function () {
     let calcBtn = document.querySelectorAll('.calculator__button');
     let str = '';
     calcBtn.forEach(function(item){
-        item.addEventListener('click', function(){
+        item.addEventListener('click', function () {
             let input = document.querySelector('.calculator__conclusion_input');
             let enter = item.innerHTML;
 
-            const evalFunc = function(){
+            const evalFunc = function () {
                 input.value = eval(input.value);
                 str = input.value;
             };
@@ -25,7 +25,7 @@ const calculator = function(){
             }
 
             if(enter === "+/-"){
-                plusAndMinus(str);
+                plusAndMinus();
             }else if(enter === "C"){
                 str = '';
                 input.value = '';
@@ -34,10 +34,12 @@ const calculator = function(){
                 evalFunc();
             }else{
                 str += enter;
-                if (/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))$/.test(str)){//первое слагаемое
+                if(str === '/' || str === '*' || str === '-' || str === '+' || str === '.'){
+                    str = "";
+                    console.log(str + "пустая строка");
+                }else if(/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))$/.test(str)){//первое слагаемое
                     input.value = str;
-                    console.log(str + " Правильно");
-                    
+                    //console.log(str + " Правильно");                    
                 }else{
                     if(/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[0-9\.]$/.test(str)){
                         //console.log("Запретить числа после 0 или точку");
@@ -69,9 +71,6 @@ const calculator = function(){
                         //console.log(str + " Удален лишний оператор");
                     }
                 }
-                
-                
-                
             }
         });
     });

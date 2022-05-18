@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    /* outline: 1px solid red; */
+    
     box-sizing: border-box;
 }
 
@@ -39,6 +39,8 @@
 }
 
 .calculator__horizontal-operation>button{
+    font-size: 35px;
+    color: #fff;
     background-color: #39484a;
     width: 75px;
     height: 75px;
@@ -87,6 +89,7 @@
 }
 
 .calculator__vertical-operation>button{
+    font-size: 35px;
     border: 0;
     width: 75px;
     height: 75px;
@@ -96,4 +99,8 @@
 
 .calculator__vertical-operation>button:not(:last-child){
     border-bottom: 2px solid #69cde1;
+}
+
+.calculator__button:hover{
+    background-color: orange;
 }
