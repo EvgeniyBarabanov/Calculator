@@ -32,23 +32,23 @@ const calculator = function () {
                 let operator = str.match(/[/*\-+]/g);
                 let lastOperator = operator[operator.length - 1];
                 let elemPercent = str.split(/[/*\-+]/);
-                let num1 = elemPercent[elemPercent.length-1];
-                let num2 = elemPercent[elemPercent.length-2];
+                let num1 = Number(elemPercent[elemPercent.length-1]);
+                let num2 = Number(elemPercent[elemPercent.length-2]);
                 switch(lastOperator){
                     case "/":
-                        str = Number(num2) / ((Number(num2) / 100) * Number(num1));
+                        str = num2 / ((num2 / 100) * num1);
                         input.value = str;
                         break;
                     case "*":
-                        str = Number(num2) * ((Number(num2) / 100) * Number(num1));
+                        str = num2 * ((num2 / 100) * num1);
                         input.value = str;
                         break;
                     case "-":
-                        str = Number(num2) - ((Number(num2) / 100) * Number(num1));
+                        str = num2 - ((num2 / 100) * num1);
                         input.value = str;
                         break;
                     case "+":
-                        str = Number(num2) + ((Number(num2) / 100) * Number(num1));
+                        str = num2 + ((num2 / 100) * num1);
                         input.value = str;
                         break;
                 };
@@ -77,7 +77,7 @@ const calculator = function () {
                 }else{
                     if(/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))$/.test(str)){//первое слагаемое
                         input.value = str;
-                        console.log(str + " true");                    
+                        //console.log(str + " true");                    
                     }else if(/^-?(([1-9]+0*[.]?\d*)|(0\.\d*)|(0))[0-9\.]$/.test(str)){
                         //console.log("удалить числа после 0 или точку");
                         str = str.substring(0, str.length - 1);
